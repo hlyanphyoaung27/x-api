@@ -6,7 +6,12 @@ const app = express();
 require("express-ws")(app);
 
 const cors  = require("cors");
-app.use(cors());
+
+app.use(cors({
+        origin: "https://xsocial.netlify.app"
+    }
+))
+app.options('*', cors())
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
